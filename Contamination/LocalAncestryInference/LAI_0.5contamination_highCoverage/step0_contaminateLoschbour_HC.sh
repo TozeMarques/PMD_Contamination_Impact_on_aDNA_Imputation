@@ -136,3 +136,6 @@ echo "REMOVE SITES WITH EXTREME DEPTH AND QUAL<30"
 bcftools filter --exclude "FORMAT/DP<$LOW |  FMT/DP>${UPP}" $INP3 | bcftools filter --exclude "QUAL<30" | bcftools view -e 'F_MISSING<0' -Ob -o $OUT3
 bcftools index -f $OUT3
 echo "DEPTH AND QUAL FILTERING DONE"
+
+#remove intermediate files
+rm ${PDIR1}/*vcf.gz*
